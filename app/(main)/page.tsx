@@ -1,18 +1,15 @@
-import Image from "next/image";
-import banner from "@/assets/image/home/banner.png";
+import AboutUs from "@/components/custom/page/home/about_us";
+import Banner from "@/components/custom/page/home/banner";
 
 const Page = () => {
   return (
-    <div className="bg-red-100">
+    <div className="">
       {/* Wrapper with fixed height */}
-      <div className="w-full relative h-[30vh] md:h-[40vh] lg:h-[48vh] xl:h-[67vh] overflow-hidden bg-lime-100">
-        <Image
-          src={banner}
-          alt="banner img"
-          className="object-cover h-[29vh] w-auto md:h-[38vh] lg:h-[46vh] xl:h-[66vh] absolute bottom-0 left-1/2
-          transform -translate-x-1/2"
-          priority
-        />
+      <div>
+        <Banner></Banner>
+      </div>
+      <div className="mt-40 container mx-auto">
+        <AboutUs></AboutUs>
       </div>
     </div>
   );
