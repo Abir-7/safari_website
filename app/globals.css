@@ -47,6 +47,8 @@
   --color-app-secondary: var(--app-secondary);
   --color-app-accent: var(--app-accent);
   --color-app-accent-light: var(--app-accent_light);
+  --color-app-bg-secondary: var(--app-bg-secondary);
+  --color-app-bg-third: var(--app-bg-third);
 }
 
 :root {
@@ -88,6 +90,8 @@
   --app-secondary: #877054;
   --app-accent: #6b6b6f;
   --app-accent_light: #afaab0;
+  --app-bg-secondary: #faa61a;
+  --app-bg-third: #ffffff;
 }
 
 .dark {
@@ -128,6 +132,8 @@
   --app-secondary: #877054;
   --app-accent: #6b6b6f;
   --app-accent_light: #afaab0;
+  --app-bg-secondary: #faa61a;
+  --app-bg-third: #ffffff;
 }
 
 @layer base {

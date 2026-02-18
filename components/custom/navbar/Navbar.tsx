@@ -19,7 +19,7 @@ const Navbar = () => {
     path === "/" ? pathname === "/" : pathname.startsWith(path);
 
   return (
-    <div className="w-full h-full flex justify-between items-center p-2 bg-[#FFFFFF]">
+    <div className="w-full h-full flex justify-between items-center p-2 bg-app-bg-third">
       <div>
         <Image width={110} alt="logo" src={logo}></Image>
       </div>
