@@ -44,6 +44,7 @@
   /* custom */
   --color-app-bg-color: var(--app-bg);
   --color-app-primary: var(--app-primary);
+  --color-app-primary-hover: var(--app-primary-hover);
   --color-app-secondary: var(--app-secondary);
   --color-app-accent: var(--app-accent);
   --color-app-accent-light: var(--app-accent_light);
@@ -87,6 +88,7 @@
   /* custom */
   --app-bg: #f8f3e9;
   --app-primary: #4c2a00;
+  --app-primary-hover: #2c1a0a;
   --app-secondary: #877054;
   --app-accent: #6b6b6f;
   --app-accent_light: #afaab0;
@@ -129,6 +131,7 @@
   /* custom */
   --app-bg: #f8f3e9;
   --app-primary: #4c2a00;
+  --app-primary-hover: #2c1a0a;
   --app-secondary: #877054;
   --app-accent: #6b6b6f;
   --app-accent_light: #afaab0;

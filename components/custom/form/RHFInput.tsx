@@ -17,6 +17,7 @@ interface TextFieldProps<T extends FieldValues> {
   label?: string;
   placeholder?: string;
   type?: "text" | "email" | "password";
+  className?: string;
 }
 
 export function RHFInput<T extends FieldValues>({
@@ -24,6 +25,7 @@ export function RHFInput<T extends FieldValues>({
   label,
   placeholder,
   type = "text",
+  className,
 }: TextFieldProps<T>) {
   const { control } = useFormContext<T>();
   const [showPassword, setShowPassword] = useState(false);
@@ -40,8 +42,8 @@ export function RHFInput<T extends FieldValues>({
         <FormItem className="relative group">
           {label && (
             <FormLabel
-              className="absolute -top-2 left-3 bg-app-bg-color px-2 text-app-accent-light 
-              group-focus-within:text-app-primary transition-colors pointer-events-none z-10"
+              className={`${className} absolute -top-2 left-3  px-2 text-app-accent-light 
+              group-focus-within:text-app-primary transition-colors pointer-events-none z-10 `}
             >
               {label}
             </FormLabel>

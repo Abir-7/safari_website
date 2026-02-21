@@ -13,10 +13,17 @@ export async function proxy(req: NextRequest) {
   }
 
   // Check public routes (exact match only)
-  const isPublicExact = public_routes.some((r) => r.path === pathname);
-  if (isPublicExact) {
-    return NextResponse.next();
-  }
+  const isPublic = public_routes.some((r) => {
+    if (r.path.endsWith("/*")) {
+      const basePath = r.path.slice(0, -2);
+      // Match both /safaries and /safaries/anything
+      return pathname === basePath || pathname.startsWith(basePath + "/");
+    }
+    console.log(pathname, r.path);
+    return pathname === r.path;
+  });
+
+  if (isPublic) return NextResponse.next();
 
   // Check protected routes
   const matchedProtected = protected_routes.find((r) => {

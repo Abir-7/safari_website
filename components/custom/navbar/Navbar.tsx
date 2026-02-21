@@ -7,6 +7,7 @@ import { ModeToggle } from "../theme/theme_toogle";
 import { useAppSelector } from "@/lib/redux/hook";
 import logo from "@/assets/image/logo.png";
 import Image from "next/image";
+import DropDownMenu from "./drop_down_menu";
 const Navbar = () => {
   const { user } = useAppSelector((state) => state.auth);
   const pathname = usePathname();
@@ -34,15 +35,44 @@ const Navbar = () => {
         >
           Product
         </Link>
+        <DropDownMenu
+          main_link="safaries"
+          class_name={isActive("/safaries") ? activeClass : inactiveClass}
+          options={[
+            { label: "Wildlife", value: "wildlife" },
 
-        {user && (
+            {
+              label: "Adventure",
+              children: [
+                { label: "Desert Safari", value: "desert" },
+                { label: "Mountain Trek", value: "mountain" },
+              ],
+            },
+
+            { label: "Cultural", value: "cultural" },
+          ]}
+          title="Safairies"
+        ></DropDownMenu>
+
+        <DropDownMenu
+          main_link="packages"
+          class_name={isActive("/packages") ? activeClass : inactiveClass}
+          options={[
+            { label: "Combined Tour", value: "combined_tour" },
+
+            { label: "Incentive Trips", value: "incentive_trip" },
+          ]}
+          title="Special Packages"
+        ></DropDownMenu>
+
+        {/* {user && (
           <Link
             href="/dashboard"
             className={isActive("/dashboard") ? activeClass : inactiveClass}
           >
             Dashboard
           </Link>
-        )}
+        )} */}
       </div>
 
       <div className="flex items-center gap-2">

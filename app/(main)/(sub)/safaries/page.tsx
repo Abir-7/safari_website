@@ -1,11 +1,15 @@
+"use client";
+
 import example from "@/assets/image/home/about_2.jpg";
-import { C_Card } from "../../common/C_Card";
+import { C_Card } from "@/components/custom/common/C_Card";
+import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 
 const demoThings = [
   {
     id: 1,
     title: "Nairobi National Park Game Drive",
-    price: 50,
+
     description:
       "It is a place that seeks to secure our environment. Our main work is to carry out environment conserving initiatives.",
     image: example,
@@ -13,7 +17,7 @@ const demoThings = [
   {
     id: 2,
     title: "Lake Safari Adventure",
-    price: 70,
+
     description:
       "Experience breathtaking wildlife moments with our guided safari experience.",
     image: example,
@@ -21,28 +25,39 @@ const demoThings = [
   {
     id: 3,
     title: "City Cultural Tour",
-    price: 30,
+
+    description:
+      "Explore the cultural heart of the city with our expert local guides.",
+    image: example,
+  },
+  {
+    id: 4,
+    title: "City Cultural Tour",
+
     description:
       "Explore the cultural heart of the city with our expert local guides.",
     image: example,
   },
 ];
 
-const ThingsToDo = () => {
+const Safaries = () => {
+  const searchParams = useSearchParams();
+  const type = searchParams.get("type");
+
   return (
     <div className="space-y-6">
       <h1 className="md:text-3xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-semibold text-app-primary">
-        Things to do
+        {type}
       </h1>
 
       {/* Responsive Grid */}
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
         {demoThings.map((item) => (
-          <C_Card key={item.id} {...item} type="tickets" />
+          <C_Card key={item.id} {...item} type="details" />
         ))}
       </div>
     </div>
   );
 };
 
-export default ThingsToDo;
+export default Safaries;

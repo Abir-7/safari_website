@@ -12,4 +12,7 @@ export const public_routes: { path: string }[] = [
   {
     path: "/product",
   },
+  {
+    path: "/safaries/*",
+  },
 ];
