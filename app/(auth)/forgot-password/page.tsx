@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { RHFForm } from "@/components/custom/form/RHFForm";
-import { RHFInput } from "@/components/custom/form/RHFInput";
+import { RHFForm } from "@/components/custom/common/form/RHFForm";
+import { RHFInput } from "@/components/custom/common/form/RHFInput";
 import { Button } from "@/components/ui/button";
 import { useSendOtp } from "@/hooks/react_query/use_auth.hook";
 
@@ -61,6 +61,7 @@ export default function ForgotPasswordPage() {
             className="space-y-4"
           >
             <RHFInput
+              className="bg-app-bg-color"
               name="email"
               label="Email"
               type="email"

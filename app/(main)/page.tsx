@@ -1,6 +1,6 @@
 import AboutUs from "@/components/custom/page/home/about_us";
 import Banner from "@/components/custom/page/home/banner";
-import FooterContact from "@/components/footer/contact";
+import FooterContact from "@/components/custom/common/footer/contact";
 import ZooGallery from "@/components/custom/page/home/image_gallery";
 
 import SearchBooking from "@/components/custom/page/home/search_booking";

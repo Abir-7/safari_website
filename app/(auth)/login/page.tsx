@@ -2,8 +2,8 @@
 "use client";
 
 import { getCurrentUser } from "@/action/session.actions";
-import { RHFForm } from "@/components/custom/form/RHFForm";
-import { RHFInput } from "@/components/custom/form/RHFInput";
+import { RHFForm } from "@/components/custom/common/form/RHFForm";
+import { RHFInput } from "@/components/custom/common/form/RHFInput";
 import { Button } from "@/components/ui/button";
 import { useLogin } from "@/hooks/react_query/use_auth.hook";
 
@@ -75,6 +75,7 @@ export default function LoginPage() {
             }}
           >
             <RHFInput
+              className="bg-app-bg-color"
               name="email"
               label="Email"
               type="email"
@@ -83,6 +84,7 @@ export default function LoginPage() {
 
             <div>
               <RHFInput
+                className="bg-app-bg-color"
                 name="password"
                 label="Password"
                 type="password"

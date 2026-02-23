@@ -2,7 +2,7 @@
 
 import example from "@/assets/image/home/about_2.jpg";
 import { C_Card } from "@/components/custom/common/C_Card";
-import Image from "next/image";
+
 import { useSearchParams } from "next/navigation";
 
 const demoThings = [

@@ -19,7 +19,7 @@ export function C_Card({
   type,
 }: GameDriveCardProps) {
   return (
-    <Card className="overflow-hidden rounded-2xl shadow-lg border-0 bg-white p-4 hover:shadow-xl transition-shadow duration-300">
+    <Card className="overflow-hidden rounded-2xl  border-0  p-4 hover:shadow-xl transition-shadow duration-300">
       {/* Image */}
       <div className="relative w-full h-64">
         <Image

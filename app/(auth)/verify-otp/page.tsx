@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { RHFForm } from "@/components/custom/form/RHFForm";
-import { RHFInput } from "@/components/custom/form/RHFInput";
+import { RHFForm } from "@/components/custom/common/form/RHFForm";
+import { RHFInput } from "@/components/custom/common/form/RHFInput";
 import { Button } from "@/components/ui/button";
 import { useResetPassword } from "@/hooks/react_query/use_auth.hook";
 
@@ -66,12 +66,14 @@ export default function VerifyotpPage() {
             className="space-y-4"
           >
             <RHFInput
+              className="bg-app-bg-color"
               name="new_password"
               label="New Password"
               type="password"
               placeholder="Enter your new password"
             />
             <RHFInput
+              className="bg-app-bg-color"
               name="confirm_password"
               label="Confirm Password"
               type="password"

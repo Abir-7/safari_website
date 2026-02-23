@@ -1,11 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { RHFForm } from "@/components/custom/form/RHFForm";
-import { RHFInput } from "@/components/custom/form/RHFInput";
-import { RHFSelect } from "@/components/custom/form/RHFSelect";
+import { RHFForm } from "@/components/custom/common/form/RHFForm";
+import { RHFInput } from "@/components/custom/common/form/RHFInput";
+import { RHFSelect } from "@/components/custom/common/form/RHFSelect";
 import type { ZodType } from "zod";
 import type { SubmitHandler } from "react-hook-form";
+import Link from "next/link";
+
+//  number_of_people: "",
+//           number_of_chlids: "",
+//           residents: "",
+//           number_of_sits: "",
 
 interface BookingFormProps<T extends Record<string, any>> {
   schema: ZodType<T>;
@@ -42,27 +48,48 @@ export default function BookingForm<T extends Record<string, any>>({
             className="bg-app-bg-third"
           />
         </div>
+        <div className="grid grid-cols-1 gap-4 mb-4">
+          <RHFInput
+            type="number"
+            name="number_of_people"
+            label="Number of people:"
+            className="bg-app-bg-third"
+          />
+        </div>
+        <div className="grid grid-cols-1  gap-4 mb-4">
+          <RHFInput
+            type="number"
+            name="number_of_chlids"
+            label="Number of people:"
+            className="bg-app-bg-third"
+          />
+        </div>
 
         <div className="mb-4">
           <RHFSelect
             className="bg-app-bg-third"
-            name="packageType"
-            label="Package Type"
+            name="residents"
+            label="Residents"
             placeholder="Select package"
             options={[
-              { label: "Budget", value: "budget" },
-              { label: "Premium", value: "premium" },
-              { label: "VIP", value: "vip" },
+              { label: "Resident(East Africa)", value: "resident" },
+              { label: "Non Resident", value: "non_resident" },
             ]}
           />
         </div>
-
-        <button
-          className="w-full py-3.5 rounded-xl font-bold text-base tracking-wide transition-opacity hover:opacity-90 "
-          style={{ backgroundColor: "#3d2510", color: "#f5f0e8" }}
-        >
-          Next
-        </button>
+        <div className="grid grid-cols-1 gap-4 mb-4">
+          <RHFInput
+            type="number"
+            name="number_of_sits"
+            label="Number of sits:"
+            className="bg-app-bg-third"
+          />
+        </div>
+        <Link href={`/packages/${2}/booking/preview`}>
+          <button className="w-full bg-[#3d2510] hover:bg-app-primary-hover transition-colors text-app-bg-third font-bold text-base rounded-xl py-3.5 tracking-wide">
+            Next
+          </button>
+        </Link>
       </RHFForm>
     </div>
   );

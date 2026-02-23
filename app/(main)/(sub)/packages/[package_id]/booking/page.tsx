@@ -24,7 +24,10 @@ export const bookingSchema = z.object({
     .string({ error: "Country is required" })
     .min(2, { message: "Country name must be at least 2 characters" }),
 
-  packageType: z.string({ error: "Package type is required" }),
+  number_of_people: z.string({ error: "Number of people is required" }),
+  number_of_chlids: z.string({ error: "Number of chlids is required" }),
+  residents: z.string({ error: "Residents is required" }),
+  number_of_sits: z.string({ error: "Number of sits is required" }),
 });
 
 const INITIAL_SEATS: Seat[] = [
@@ -47,7 +50,16 @@ const SEAT_LAYOUT: (number | null)[][] = [
 export default function BookingInformation() {
   const [selectedSeats, setSelectedSeats] = useState<number[]>([]);
   const handleBookingSubmit = (data: z.infer<typeof bookingSchema>) => {
-    console.log("Booking Data:", data, selectedSeats);
+    const bookingPayload = {
+      form: data,
+      seats: selectedSeats,
+    };
+
+    if (typeof window !== "undefined") {
+      localStorage.setItem("booking_data", JSON.stringify(bookingPayload));
+    }
+
+    console.log("Saved to localStorage:", bookingPayload);
   };
 
   return (
@@ -60,7 +72,10 @@ export default function BookingInformation() {
           email: "",
           phone: "",
           country: "",
-          packageType: "",
+          number_of_people: "",
+          number_of_chlids: "",
+          residents: "",
+          number_of_sits: "",
         }}
       />
       <SeatSelector

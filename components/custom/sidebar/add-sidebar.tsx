@@ -82,7 +82,7 @@ export function AppSidebar() {
   const currentUserRole: Role = user?.role as Role;
 
   const filteredItems = items.filter((item) =>
-    item.roles.includes(currentUserRole)
+    item.roles.includes(currentUserRole),
   );
 
   const isActive = (url?: string) => {
@@ -101,7 +101,7 @@ export function AppSidebar() {
               {filteredItems.map((item) => {
                 const children =
                   item.children?.filter((child) =>
-                    child.roles.includes(currentUserRole)
+                    child.roles.includes(currentUserRole),
                   ) ?? [];
 
                 const hasChildren = children.length > 0;

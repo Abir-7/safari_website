@@ -8,13 +8,13 @@ import { Button } from "@/components/ui/button";
 const AboutUs = () => {
   return (
     <div className=" ">
-      <h1 className="md:text-3xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-semibold mb-6 text-app-primary">
+      <h1 className="text-3xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-semibold mb-6 text-app-primary">
         About us{" "}
       </h1>
 
       <div className="flex flex-col lg:flex-row ">
         {/* image section */}
-        <div className="h-96 md:h-fit lg:w-[1500px] xl:w-[1600px]">
+        <div className=" lg:w-[1500px] ">
           <div className="relative  w-fit    ">
             <div className="w-full md:w-96 lg:w-60 xl:w-80 aspect-4/3 lg:aspect-2/3 p-2 bg-white rounded-sm  ">
               <Image
@@ -29,7 +29,7 @@ const AboutUs = () => {
               className="
             absolute
 
-w-64 sm:w-72 md:w-80 lg:w-48 xl:w-64
+w-60  sm:w-80 lg:w-48 xl:w-64
 aspect-4/3 lg:aspect-2/3
 
 /* Mobile (default) */
@@ -52,7 +52,8 @@ lg:rotate-12
 /* XL */
 xl:top-13
 xl:left-36
-
+hidden
+md:block
 
 p-2 bg-white rounded-lg
               
@@ -69,18 +70,18 @@ p-2 bg-white rounded-lg
           </div>
         </div>
         {/* info section */}
-        <div className="space-y-4 xl:col-span-2 xl:text-[18px] 2xl:text-[20px]">
-          <h1 className=" mt-10 lg:mt-0 md:text-3xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-semibold">
+        <div className="space-y-4 xl:col-span-2">
+          <h1 className=" mt-10 lg:mt-0 text-3xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-semibold">
             Experience the Wild Up Close
           </h1>
-          <p className="text-app-accent-light">
+          <p className="text-app-accent">
             Step into a world where nature thrives and wildlife roams freely.
             Our safari park offers a safe, immersive environment to explore
             diverse animals, scenic landscapes, and unforgettable
             adventures—while promoting conservation, education, and respect for
             nature.
           </p>
-          <div className="text-app-accent-light space-y-2 xl:space-y-4">
+          <div className="text-app-accent space-y-2 xl:space-y-4">
             <p className="flex gap-2 ">
               <span className="mt-0.5">
                 <Check
