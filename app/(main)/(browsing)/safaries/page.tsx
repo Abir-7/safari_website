@@ -46,7 +46,7 @@ const Safaries = () => {
 
   return (
     <div className="space-y-6">
-      <h1 className="md:text-3xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-semibold text-app-primary">
+      <h1 className="md:text-3xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-semibold text-app-primary capitalize">
         {type}
       </h1>
 
