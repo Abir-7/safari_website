@@ -58,7 +58,7 @@ export default function AccountInformation({
         <div className="py-5 ">
           <div className="flex items-start justify-between">
             <div className="flex-1">
-              <p className="text-base font-semibold  mb-1">Your name</p>
+              <p className="text-base font-medium  mb-1">Your name</p>
               {editingName ? (
                 <div className="flex items-center gap-2 mt-2   ">
                   <RHFForm onSubmit={() => {}} className="w-full">
@@ -86,7 +86,7 @@ export default function AccountInformation({
                   </RHFForm>
                 </div>
               ) : (
-                <p className="text-sm text-amber-700">{name}</p>
+                <p className="text-sm  text-app-secondary">{name}</p>
               )}
             </div>
 
@@ -108,10 +108,10 @@ export default function AccountInformation({
         <div className="py-5">
           <div className="flex items-start justify-between">
             <div className="flex-1">
-              <p className="text-base font-semibold text-neutral-900 mb-1">
+              <p className="text-base font-medium text-neutral-900 mb-1">
                 Email
               </p>
-              <p className="text-sm text-amber-700">{email}</p>
+              <p className="text-sm text-app-secondary">{email}</p>
             </div>
           </div>
         </div>
@@ -122,7 +122,7 @@ export default function AccountInformation({
         <div className="py-5">
           <div className="flex items-start justify-between">
             <div className="flex-1">
-              <p className="text-base font-semibold text-neutral-900 mb-1">
+              <p className="text-base font-medium text-neutral-900 mb-1">
                 Password
               </p>
               {editingPassword ? (

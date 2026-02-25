@@ -182,12 +182,13 @@ const SelectDate = ({ value, onChange }: SelectDateProps) => {
         </Button>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent className="bg-app-bg-color p-2">
+      <DropdownMenuContent className="bg-app-bg-third p-2">
         <Calendar
+          classNames={{}}
           mode="single"
           selected={value}
           onSelect={onChange}
-          className="w-full rounded-lg border-none shadow-none bg-app-bg-color"
+          className="w-full rounded-lg border-none shadow-none bg-app-bg-third"
           required
         />
       </DropdownMenuContent>
