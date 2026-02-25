@@ -19,7 +19,7 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 // Shared button style
 const buttonBaseStyle =
-  "bg-transparent shadow-none border border-app-primary focus-visible:border-app-primary hover:bg-transparent focus-visible:ring-0 w-full h-15 text-left flex items-center gap-2";
+  "bg-transparent shadow-none border border-app-primary focus-visible:border-app-primary hover:bg-transparent focus-visible:ring-0 w-full h-12 sm:h-15 text-left flex items-center gap-2";
 
 export default function SearchBooking() {
   const [startDestination, setStartDestination] = useState<string>("");
@@ -32,7 +32,7 @@ export default function SearchBooking() {
       <div>
         <RadioSelect value={tripType} onChange={setTripType} />
       </div>
-      <div className="flex gap-5 ">
+      <div className="flex md:flex-row flex-col gap-5 ">
         <div className="flex flex-wrap  gap-5 items-center w-full relative ">
           <div className="flex-1 min-w-[150px]">
             <SelectOption
@@ -43,7 +43,30 @@ export default function SearchBooking() {
           </div>
 
           {/* Arrow Icon */}
-          <div className=" absolute left-[23.8%] -translate-x-[23.8%]  flex-none w-10 h-10 bg-app-primary rounded-full text-white flex justify-center items-center">
+          <div
+            className=" 
+          xl: top-2.5
+      
+          md:left-[30.9%] 
+          2xl:top-1/2 
+          2xl:-translate-y-1/2
+          absolute 
+          xl:left-[23.8%] 
+          2xl:left-[23.8%] 
+           md:-translate-x-[16.8%] 
+          lg:-translate-x-[15.8%] 
+          xl:-translate-x-[29.8%] 
+          2xl:-translate-x-[23.8%]  
+          flex-none w-10 
+          h-10 
+          bg-app-primary
+          rounded-full 
+          text-white md:flex 
+          justify-center 
+          items-center
+          hidden 
+          "
+          >
             <ArrowLeftRight />
           </div>
           <div className="flex-1 min-w-[150px]">
@@ -68,7 +91,7 @@ export default function SearchBooking() {
         </div>
 
         <Button
-          className="h-15 w-15 bg-app-bg-secondary text-white"
+          className="h-12 sm:h-15 sm:w-15 bg-app-bg-secondary text-white"
           variant="outline"
         >
           <Search />
@@ -92,9 +115,9 @@ const SelectOption = ({ value, onChange, placeholder }: SelectOptionProps) => {
         <Button className={buttonBaseStyle} variant="outline">
           {value ? (
             <>
-              <div className="text-[18px]">{value.slice(0, 3)}</div>
+              <div className=" md:text-[18px]">{value.slice(0, 3)}</div>
               <Separator className="bg-app-primary" orientation="vertical" />
-              <div className="flex flex-col text-[18px]">
+              <div className="flex flex-col md:text-[18px]">
                 <span>{value}</span>
                 <span className="text-xs text-app-accent-light">
                   One day trip
@@ -144,9 +167,9 @@ const SelectDate = ({ value, onChange }: SelectDateProps) => {
         <Button className={buttonBaseStyle} variant="outline">
           {value ? (
             <>
-              <div className="text-[18px]">{shortDate}</div>
+              <div className="md:text-[18px]">{shortDate}</div>
               <Separator className="bg-app-primary" orientation="vertical" />
-              <div className="flex flex-col text-[18px]">
+              <div className="flex flex-col md:text-[18px]">
                 <span>{monthName}</span>
                 <span className="text-xs text-app-accent-light">
                   {timeYear}
@@ -187,13 +210,13 @@ const SelectPerson = ({ value, onChange }: SelectPersonProps) => {
         <Button className={buttonBaseStyle} variant="outline">
           {value ? (
             <>
-              <div className="text-[18px]">{value}</div>
+              <div className=" md:text-[18px]">{value}</div>
               <Separator className="bg-app-primary" orientation="vertical" />
-              <div className="flex flex-col text-[18px]">
+              <div className="flex flex-col  md:text-[18px]">
                 <span>
                   {value} {value === 1 ? "Person" : "People"}
                 </span>
-                <span className="text-xs text-app-accent-light">Max 7</span>
+                <span className="text-xs text-app-accent-light ">Max 7</span>
               </div>
             </>
           ) : (
@@ -228,15 +251,17 @@ const RadioSelect = ({ value, onChange }: RadioSelectProps) => {
   return (
     <RadioGroup value={value} onValueChange={onChange} className="flex gap-4">
       <div
-        className={`flex items-center gap-3 border p-3 rounded-lg cursor-pointer transition-all
+        className={`flex items-center gap-3 border p-3 rounded-lg cursor-pointer transition-all  
           ${
             value === "option-one"
-              ? "border-app-primary bg-app-primary text-white"
+              ? "  border-app-primary bg-app-primary text-white"
               : "border-app-accent-light text-app-accent-light"
           }`}
       >
         <RadioGroupItem value="option-one" id="option-one" />
-        <Label htmlFor="option-one">Option One</Label>
+        <Label htmlFor="option-one" className=" text-xs md:text-base">
+          Afternoon
+        </Label>
       </div>
 
       <div
@@ -248,7 +273,7 @@ const RadioSelect = ({ value, onChange }: RadioSelectProps) => {
           }`}
       >
         <RadioGroupItem value="option-two" id="option-two" />
-        <Label htmlFor="option-two">Option Two</Label>
+        <Label htmlFor="option-two">Evening</Label>
       </div>
     </RadioGroup>
   );

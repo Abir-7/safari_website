@@ -16,7 +16,7 @@ const AboutUs = () => {
         {/* image section */}
         <div className=" lg:w-[1500px] ">
           <div className="relative  w-fit    ">
-            <div className="w-full md:w-96 lg:w-60 xl:w-80 aspect-4/3 lg:aspect-2/3 p-2 bg-white rounded-sm  ">
+            <div className="w-full  lg:w-60 xl:w-80 aspect-4/3 lg:aspect-2/3 p-2 bg-white rounded-sm  ">
               <Image
                 width={400}
                 height={400}
