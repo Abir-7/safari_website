@@ -40,59 +40,50 @@ export default function AccountInformation({
     setEditingName(true);
   };
 
-  const handleSaveName = () => {
-    setName(tempName);
-    setEditingName(false);
-  };
-
   const handleCancelName = () => {
     setTempName(name);
     setEditingName(false);
   };
 
   return (
-    <div className=" flex items-start justify-center py-8">
-      <div className="w-full max-w-3xl space-y-1">
-        <div className="mb-8">
+    <div className=" flex items-start justify-center ">
+      <div className="w-full max-w-3xl space-y-1 py-8 lg:py-2">
+        <div className="mb-4">
           <h1 className="text-2xl font-bold text-neutral-900">Profile Info</h1>
           <p className="mt-1 text-sm text-neutral-500">
             Last updated: January 2025
           </p>
         </div>
         {/* Your Name */}
-        <div className="py-5">
+        <div className="py-5 ">
           <div className="flex items-start justify-between">
             <div className="flex-1">
-              <p className="text-base font-semibold text-neutral-900 mb-1">
-                Your name
-              </p>
+              <p className="text-base font-semibold  mb-1">Your name</p>
               {editingName ? (
-                <div className="flex items-center gap-2 mt-2">
-                  <Input
-                    ref={nameInputRef}
-                    value={tempName}
-                    onChange={(e) => setTempName(e.target.value)}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter") handleSaveName();
-                      if (e.key === "Escape") handleCancelName();
-                    }}
-                    className="h-9 w-64 rounded-lg border-neutral-300 bg-white text-sm text-neutral-800 focus-visible:ring-amber-400"
-                  />
-                  <Button
-                    size="sm"
-                    onClick={handleSaveName}
-                    className="h-9 rounded-lg bg-amber-700 px-4 text-xs text-white hover:bg-amber-800"
-                  >
-                    Save
-                  </Button>
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    onClick={handleCancelName}
-                    className="h-9 rounded-lg px-3 text-xs text-neutral-500 hover:bg-neutral-200"
-                  >
-                    Cancel
-                  </Button>
+                <div className="flex items-center gap-2 mt-2   ">
+                  <RHFForm onSubmit={() => {}} className="w-full">
+                    <RHFInput
+                      name="Your Name"
+                      label="Name"
+                      className="bg-app-bg-color"
+                    ></RHFInput>
+                    <div className="flex gap-2 justify-end">
+                      <Button
+                        size="sm"
+                        onClick={handleCancelName}
+                        className="bg-app-secondary text-white hover:bg-app-primary"
+                      >
+                        Cancel
+                      </Button>
+                      <Button
+                        size="sm"
+                        onClick={handleCancelName}
+                        className="bg-app-secondary text-white hover:bg-app-primary"
+                      >
+                        Save
+                      </Button>
+                    </div>
+                  </RHFForm>
                 </div>
               ) : (
                 <p className="text-sm text-amber-700">{name}</p>
@@ -152,13 +143,22 @@ export default function AccountInformation({
                       label="Confirm Password"
                       className="bg-app-bg-color"
                     ></RHFInput>
-                    <Button
-                      onClick={() => setEditingPassword(false)}
-                      type="button"
-                    >
-                      Cancel
-                    </Button>
-                    <Button type="submit">Update</Button>
+                    <div className="flex gap-2 justify-end">
+                      <Button
+                        onClick={() => setEditingPassword(false)}
+                        type="button"
+                        className="bg-app-secondary text-white hover:bg-app-primary"
+                      >
+                        Cancel
+                      </Button>
+                      <Button
+                        onClick={() => setEditingPassword(false)}
+                        className="bg-app-secondary text-white hover:bg-app-primary"
+                        type="submit"
+                      >
+                        Update
+                      </Button>
+                    </div>
                   </RHFForm>
                 </div>
               ) : (

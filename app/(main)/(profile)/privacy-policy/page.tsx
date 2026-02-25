@@ -100,17 +100,17 @@ function BulletItem({
   subItems?: string[];
 }) {
   return (
-    <li className="flex gap-2 text-sm text-app-accent leading-relaxed">
+    <li className="flex gap-2 text-sm text-app-secondary leading-relaxed ">
       <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-app-secondary" />
       <div>
         <span>
-          <span className="font-medium  text-app-accent">{label}:</span>{" "}
+          <span className="font-medium  text-app-secondary">{label}:</span>{" "}
           {detail}
         </span>
         {subItems && subItems.length > 0 && (
           <ul className="mt-2 space-y-1.5 pl-1">
             {subItems.map((sub, i) => (
-              <li key={i} className="flex gap-2 text-sm  text-app-accent">
+              <li key={i} className="flex gap-2 text-sm text-app-secondary">
                 <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-app-secondary" />
                 <span>{sub}</span>
               </li>
@@ -125,13 +125,13 @@ function BulletItem({
 export default function PrivacyPolicy() {
   return (
     <div className="">
-      <div className="mx-auto max-w-3xl">
+      <div className="mx-auto max-w-3xl mb-5 py-8 lg:py-2">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-2xl font-bold text-neutral-900">
+          <h1 className="text-2xl font-bold text-app-primary">
             Privacy &amp; Policy
           </h1>
-          <p className="mt-1 text-sm text-neutral-500">
+          <p className="mt-1 text-sm text-app-secondary">
             Last updated: January 2025
           </p>
         </div>
@@ -140,7 +140,7 @@ export default function PrivacyPolicy() {
         <div className="space-y-8">
           {sections.map((section) => (
             <div key={section.id}>
-              <h2 className="mb-3 text-base font-bold text-neutral-900">
+              <h2 className="mb-3 text-base font-bold text-app-primary">
                 {section.id}. {section.title}
               </h2>
               <ul className="space-y-3">

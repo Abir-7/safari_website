@@ -50,11 +50,11 @@ export default function ProfileCard({
   ];
 
   return (
-    <div className="md:w-72 rounded-3xl px-6 py-8 bg-app-bg-third">
-      {/* Avatar */}
-      <div className="flex flex-col items-center mb-6">
-        <div className="relative mb-3">
-          <div className="h-20 w-20 rounded-full overflow-hidden ring-2 ring-white shadow-md">
+    <div className="w-full lg:w-72 rounded-3xl px-4 lg:px-6 py-4 lg:py-8 bg-app-bg-third">
+      {/* Avatar + Name */}
+      <div className="flex flex-row lg:flex-col items-center lg:items-center gap-4 lg:gap-0 mb-4 lg:mb-6">
+        <div className="relative">
+          <div className="h-16 w-16 lg:h-20 lg:w-20 rounded-full overflow-hidden ring-2 ring-white shadow-md">
             <Image
               src={avatarUrl}
               alt={name}
@@ -64,12 +64,14 @@ export default function ProfileCard({
             />
           </div>
 
+          {/* Camera Button */}
           <button
             onClick={handleCameraClick}
-            className="absolute bottom-0 right-0 flex h-6 w-6 items-center justify-center rounded-full bg-white shadow border border-neutral-200 hover:bg-neutral-50 transition-colors"
+            className="absolute bottom-0 right-0 flex h-5 w-5 lg:h-6 lg:w-6 items-center justify-center rounded-full bg-white shadow border border-neutral-200 hover:bg-neutral-50 transition-colors"
+            aria-label="Change profile picture"
           >
             <Camera
-              className="h-3.5 w-3.5 text-neutral-600"
+              className="h-3 w-3 lg:h-3.5 lg:w-3.5 text-neutral-600"
               strokeWidth={1.8}
             />
           </button>
@@ -83,45 +85,44 @@ export default function ProfileCard({
           />
         </div>
 
-        <h2 className="text-base font-bold text-neutral-900">{name}</h2>
-        <p className="text-sm text-neutral-400">{email}</p>
+        <div className="flex flex-col lg:text-center">
+          <h2 className="text-sm lg:text-base font-bold text-neutral-900">
+            {name}
+          </h2>
+          <p className="text-xs lg:text-sm text-neutral-400">{email}</p>
+        </div>
       </div>
 
-      <Separator className="mb-4" />
+      <Separator className="hidden lg:block mb-4" />
 
       {/* Menu Items */}
-      <nav className="flex flex-col gap-1">
+      <nav className="flex flex-row lg:flex-col gap-2 lg:gap-1 justify-between lg:justify-start">
         {menuItems.map((item, index) => {
-          const isActive = pathname === item.href;
+          const isActive =
+            pathname === item.href || pathname.startsWith(item.href);
 
           return (
             <Link
-              href={item.href}
               key={index}
-              className={`flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-semibold transition-colors
-                ${
-                  isActive
-                    ? "bg-amber-100 text-amber-700"
-                    : "text-neutral-800 hover:bg-neutral-50"
-                }`}
+              href={item.href}
+              className={`flex items-center gap-2 lg:gap-3 rounded-xl px-3 py-2 lg:py-3 text-sm font-semibold transition-colors
+                ${isActive ? "text-app-primary font-bold" : "text-neutral-800 hover:text-app-primary"}`}
             >
               {item.icon}
-              {item.label}
+              <span className="hidden sm:inline">{item.label}</span>
             </Link>
           );
         })}
+
+        {/* Logout */}
+        <button
+          onClick={onLogout}
+          className="flex items-center gap-2 lg:gap-3 rounded-xl px-3 py-2 lg:py-3 text-sm font-semibold text-red-600 hover:text-red-700 transition-colors"
+        >
+          <LogOut className="h-5 w-5" strokeWidth={1.8} />
+          <span className="hidden sm:inline">Logout</span>
+        </button>
       </nav>
-
-      <Separator className="my-4" />
-
-      {/* Logout Separate */}
-      <button
-        onClick={onLogout}
-        className="flex w-full items-center gap-3 rounded-xl px-3 py-3 text-sm font-semibold text-red-600 hover:bg-red-50 transition-colors"
-      >
-        <LogOut className="h-5 w-5" strokeWidth={1.8} />
-        Logout
-      </button>
     </div>
   );
 }

@@ -294,7 +294,7 @@ const Navbar = () => {
     <Collapsible
       open={mobileOpen}
       onOpenChange={setMobileOpen}
-      className="w-full bg-app-bg-third"
+      className="w-full bg-app-bg-third px-8"
     >
       {/* ── Main bar ── */}
       <div className="flex justify-between items-center p-2 h-full">
