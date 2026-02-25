@@ -7,6 +7,17 @@ import { useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import {
+  AlertDialog,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogCancel,
+  AlertDialogAction,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 interface ProfileCardProps {
   name?: string;
   email?: string;
@@ -50,10 +61,10 @@ export default function ProfileCard({
   ];
 
   return (
-    <div className="w-full lg:w-72 rounded-3xl px-4 lg:px-6 py-4 lg:py-8 bg-app-bg-third">
+    <div className="w-full lg:w-72 rounded-2xl px-4 lg:px-2 py-4 lg:py-8 bg-app-bg-third">
       {/* Avatar + Name */}
-      <div className="flex flex-row lg:flex-col items-center lg:items-center gap-4 lg:gap-0 mb-4 lg:mb-6">
-        <div className="relative">
+      <div className="flex  flex-row lg:flex-col items-center lg:items-center gap-4 lg:gap-0 mb-4 lg:mb-6">
+        <div className="relative ">
           <div className="h-16 w-16 lg:h-20 lg:w-20 rounded-full overflow-hidden ring-2 ring-white shadow-md">
             <Image
               src={avatarUrl}
@@ -86,14 +97,14 @@ export default function ProfileCard({
         </div>
 
         <div className="flex flex-col lg:text-center">
-          <h2 className="text-sm lg:text-base font-bold text-neutral-900">
+          <h2 className="text-xl lg:text-2xl  font-bold mt-2 text-neutral-900">
             {name}
           </h2>
           <p className="text-xs lg:text-sm text-neutral-400">{email}</p>
         </div>
       </div>
 
-      <Separator className="hidden lg:block mb-4" />
+      {/* <Separator className="hidden lg:block mb-4" /> */}
 
       {/* Menu Items */}
       <nav className="flex flex-row lg:flex-col gap-2 lg:gap-1 justify-between lg:justify-start">
@@ -105,7 +116,7 @@ export default function ProfileCard({
             <Link
               key={index}
               href={item.href}
-              className={`flex items-center gap-2 lg:gap-3 rounded-xl px-3 py-2 lg:py-3 text-sm font-semibold transition-colors
+              className={`flex items-center text-[16px] gap-2 lg:gap-3 rounded-xl px-3 py-2 lg:py-3 text-sm font-semibold transition-colors
                 ${isActive ? "text-app-primary font-bold" : "text-neutral-800 hover:text-app-primary"}`}
             >
               {item.icon}
@@ -115,14 +126,45 @@ export default function ProfileCard({
         })}
 
         {/* Logout */}
-        <button
-          onClick={onLogout}
-          className="flex items-center gap-2 lg:gap-3 rounded-xl px-3 py-2 lg:py-3 text-sm font-semibold text-red-600 hover:text-red-700 transition-colors"
-        >
-          <LogOut className="h-5 w-5" strokeWidth={1.8} />
-          <span className="hidden sm:inline">Logout</span>
-        </button>
+        <LogoutModal onLogout={onLogout} />
       </nav>
     </div>
   );
 }
+
+interface LogoutModalProps {
+  onLogout?: () => void;
+}
+
+const LogoutModal = ({ onLogout }: LogoutModalProps) => {
+  return (
+    <AlertDialog>
+      <AlertDialogTrigger asChild>
+        <button className="flex items-center gap-2 lg:gap-3 rounded-xl px-3 py-2 lg:py-3 text-sm font-semibold text-app-secondary hover:text-app-primary transition-colors">
+          <LogOut className="h-5 w-5" strokeWidth={1.8} />
+          <span className="hidden sm:inline text-[16px]">Logout</span>
+        </button>
+      </AlertDialogTrigger>
+
+      <AlertDialogContent className="rounded-2xl">
+        <AlertDialogHeader>
+          <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+          <AlertDialogDescription>
+            This action will log you out of your account.
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+
+        <AlertDialogFooter>
+          <AlertDialogCancel className="rounded-xl">Cancel</AlertDialogCancel>
+
+          <AlertDialogAction
+            onClick={onLogout}
+            className="  text-white rounded-xl bg-red-600 hover:bg-red-500"
+          >
+            Logout
+          </AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
+  );
+};

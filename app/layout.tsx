@@ -1,21 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/next_theme";
 import { ReactQueryProvider } from "@/providers/query_client_provider";
 import { Toaster } from "@/components/ui/sonner";
-
 import ReduxProvider from "@/providers/redux-provider";
 import AuthCheck from "@/providers/auth_provider";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const roboto = Roboto({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["300", "400", "500", "700"],
+  variable: "--font-roboto",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -25,14 +21,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${roboto.className}  antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
@@ -41,11 +35,11 @@ export default function RootLayout({
         >
           <ReduxProvider>
             <AuthCheck>
-              <ReactQueryProvider> {children}</ReactQueryProvider>
+              <ReactQueryProvider>{children}</ReactQueryProvider>
             </AuthCheck>
           </ReduxProvider>
         </ThemeProvider>
-        <Toaster></Toaster>
+        <Toaster />
       </body>
     </html>
   );
