@@ -31,12 +31,12 @@ const demoThings = [
 const ThingsToDo = () => {
   return (
     <div className="space-y-6">
-      <h1 className="md:text-3xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-semibold text-app-primary">
+      <h1 className="text-3xl lg:text-3xl xl:text-3xl 2xl:text-4xl font-bold text-app-primary">
         Things to do
       </h1>
 
       {/* Responsive Grid */}
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {demoThings.map((item) => (
           <C_Card key={item.id} {...item} type="tickets" />
         ))}

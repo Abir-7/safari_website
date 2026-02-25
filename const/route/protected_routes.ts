@@ -11,4 +11,12 @@ export const protected_routes = [
     path: "/dashboard",
     allowedRoles: all_roles,
   },
+  {
+    path: "/packages/*/booking",
+    allowedRoles: user_role.admin, // or specific roles
+  },
+  {
+    path: "/booking-history",
+    allowedRoles: user_role.admin, // or specific roles
+  },
 ];

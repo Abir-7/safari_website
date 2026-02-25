@@ -7,7 +7,7 @@ const page = () => {
   return (
     <div className="space-y-8">
       <AboutUs></AboutUs>
-      <ZooGallery></ZooGallery>
+      <ZooGallery title="Our populer animals"></ZooGallery>
       <MoreThanJustSafaris></MoreThanJustSafaris>
     </div>
   );

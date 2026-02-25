@@ -16,9 +16,19 @@ const Login_logout = () => {
   return (
     <div>
       {user && user.id ? (
-        <Button onClick={logout}>Logout</Button>
+        <Button
+          onClick={logout}
+          className="bg-app-secondary hover:bg-app-primary text-white"
+        >
+          Logout
+        </Button>
       ) : (
-        <Link href={"/login"}>Login</Link>
+        <Link href={"/login"}>
+          {" "}
+          <Button className="bg-app-secondary hover:bg-app-primary text-white">
+            Login
+          </Button>
+        </Link>
       )}
     </div>
   );

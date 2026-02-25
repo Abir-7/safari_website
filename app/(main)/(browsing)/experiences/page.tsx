@@ -139,7 +139,7 @@ const Experience = () => {
       {type === "activities" ? (
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
           {demoThings.map((item) => (
-            <C_Card key={item.id} {...item} type="details" />
+            <C_Card key={item.id} {...item} type="experience" />
           ))}
         </div>
       ) : (

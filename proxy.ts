@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { getCurrentUser } from "./action/session.actions";
-import { public_routes } from "./const/route/public_routes";
+
 import { protected_routes } from "./const/route/protected_routes";
 
 export async function proxy(req: NextRequest) {
@@ -12,28 +12,29 @@ export async function proxy(req: NextRequest) {
     return NextResponse.next();
   }
 
-  // Check public routes (exact match only)
-  const isPublic = public_routes.some((r) => {
-    if (r.path.endsWith("/*")) {
-      const basePath = r.path.slice(0, -2);
-      // Match both /safaries and /safaries/anything
-      return pathname === basePath || pathname.startsWith(basePath + "/");
-    }
-    console.log(pathname, r.path);
-    return pathname === r.path;
-  });
+  // // Check public routes (exact match only)
+  // const isPublic = public_routes.some((r) => {
+  //   if (r.path.endsWith("/*")) {
+  //     const basePath = r.path.slice(0, -2);
+  //     // Match both /safaries and /safaries/anything
+  //     return pathname === basePath || pathname.startsWith(basePath + "/");
+  //   }
+  //   console.log(pathname, r.path);
+  //   return pathname === r.path;
+  // });
 
-  if (isPublic) return NextResponse.next();
+  // if (isPublic) return NextResponse.next();
 
   // Check protected routes
   const matchedProtected = protected_routes.find((r) => {
-    if (r.path.endsWith("/*")) {
-      const basePath = r.path.slice(0, -2);
-      return pathname.startsWith(basePath + "/");
+    if (r.path.includes("*")) {
+      const regexPath = "^" + r.path.replace(/\*/g, "[^/]+") + "$";
+      const regex = new RegExp(regexPath);
+      return regex.test(pathname);
     }
-    return pathname === r.path || pathname.startsWith(r.path + "/");
-  });
 
+    return pathname === r.path;
+  });
   // Not listed → allow
   if (!matchedProtected) {
     return NextResponse.next();

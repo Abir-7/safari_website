@@ -206,6 +206,14 @@ const Navbar = () => {
       >
         About Us
       </Link>
+      {user && (
+        <Link
+          href="/booking-history"
+          className={`block py-1.5 ${isActive("/booking-history") ? activeClass : inactiveClass}`}
+        >
+          Booking History
+        </Link>
+      )}
     </>
   );
 
@@ -270,6 +278,15 @@ const Navbar = () => {
       >
         About Us
       </Link>
+      {user && (
+        <Link
+          href="/booking-history"
+          onClick={() => setMobileOpen(false)}
+          className={`block py-1.5 ${isActive("/booking-history") ? activeClass : inactiveClass}`}
+        >
+          Booking History
+        </Link>
+      )}
     </>
   );
 

@@ -49,14 +49,16 @@ const animals: Animal[] = [
   },
 ];
 
-export default function ZooGallery() {
+export default function ZooGallery({
+  title = " Our Upcoming Zoo Animals",
+}: {
+  title?: string;
+}) {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
     <section className="rounded-2xl mx-auto ">
-      <h2 className="text-4xl font-bold text-app-primary mb-6">
-        Our Upcoming Zoo Animals
-      </h2>
+      <h2 className="text-4xl font-bold text-app-primary mb-6">{title}</h2>
 
       <div
         className="grid gap-2"
