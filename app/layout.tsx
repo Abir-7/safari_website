@@ -27,18 +27,18 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${roboto.className}  antialiased`}>
-        <ThemeProvider
+        {/* <ThemeProvider
           attribute="class"
           defaultTheme="light"
           enableSystem
           disableTransitionOnChange
-        >
-          <ReduxProvider>
-            <AuthCheck>
-              <ReactQueryProvider>{children}</ReactQueryProvider>
-            </AuthCheck>
-          </ReduxProvider>
-        </ThemeProvider>
+        > */}
+        <ReduxProvider>
+          <AuthCheck>
+            <ReactQueryProvider>{children}</ReactQueryProvider>
+          </AuthCheck>
+        </ReduxProvider>
+        {/* </ThemeProvider> */}
         <Toaster />
       </body>
     </html>
