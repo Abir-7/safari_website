@@ -44,7 +44,16 @@ const BOOKING_FIELDS: { label: string; key: keyof BookingData }[] = [
 // Component
 // ---------------------------------------------------------------------------
 export default function BookingInfoSummary() {
-  const [bookingData, setBookingData] = useState<BookingData | null>(null);
+  const [bookingData, setBookingData] = useState<BookingData | null>({
+    name: "Ravi Kumar",
+    email: "ravi.kumar@example.com",
+    phone: "+91-9876543210",
+    country: "India",
+    numberOfPeople: 2,
+    numberOfChildren: 0,
+    resident: "No",
+    numberOfSeats: 2,
+  });
   const [coupon, setCoupon] = useState<string>("");
 
   const [passes, setPasses] = useState<PassItem[]>([
@@ -132,6 +141,7 @@ export default function BookingInfoSummary() {
   // ---------------------------------------------------------------------------
   // Loading state
   // ---------------------------------------------------------------------------
+  console.log(bookingData);
   if (!bookingData) {
     return (
       <div className="min-h-screen flex items-center justify-center">

@@ -60,7 +60,7 @@ export default function BookingForm<T extends Record<string, any>>({
           <RHFInput
             type="number"
             name="number_of_chlids"
-            label="Number of people:"
+            label="Number of children:"
             className="bg-app-bg-third"
           />
         </div>
